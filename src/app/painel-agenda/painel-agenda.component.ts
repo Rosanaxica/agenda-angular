@@ -3,6 +3,7 @@ import { AgendaService } from './../services/agenda.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Message } from 'primeng/api';
 import { Table } from 'primeng/table';
+import {MenuItem} from 'primeng/api';
 
 @Component({
   selector: 'app-painel-agenda',
@@ -15,6 +16,7 @@ export class PainelAgendaComponent implements OnInit {
   operacao: boolean = true;
   messages: Message[] = [];
   data = {};
+  items: MenuItem[];
 
   @ViewChild('dt') table: Table;
   complete: number;
@@ -24,6 +26,8 @@ export class PainelAgendaComponent implements OnInit {
   constructor(private service: AgendaService) { }
 
   ngOnInit(): void {
+    this.items = [
+      {label: 'Agenda', icon: 'pi pi-fw pi-home'},]
     this.getAgenda()
     this.messages = [];
 
@@ -66,6 +70,7 @@ export class PainelAgendaComponent implements OnInit {
     this.service.addAgenda(this.ag).subscribe((data) => {
       this.getAgenda();
       this.showMessages('success');
+      this.clearFields();
       setTimeout(() => this.clearMessages(), 5000);
       this.clearFields();
     }, (error) => {
@@ -120,14 +125,14 @@ export class PainelAgendaComponent implements OnInit {
     }) : this.agenda
     console.log(this.complete, this.incomplete)
     this.mountChart(this.complete, this.incomplete)
-    
+
   }
   clearFields() {
     this.ag = { id: 0, telefone: '', nome: '', email: '' }
 
   }
 
-  mountChart(complete, incomplete){
+  mountChart(complete, incomplete) {
     this.data = {
       labels: ['Cadastro Completo', 'Cadastro Incompleto'],
       datasets: [

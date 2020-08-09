@@ -16,6 +16,8 @@ import { ButtonModule } from 'primeng/button';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { ChartModule } from 'primeng/chart';
+import {TabMenuModule} from 'primeng/tabmenu';
+
 
 
 
@@ -36,7 +38,9 @@ import { ChartModule } from 'primeng/chart';
     ButtonModule,
     MessageModule,
     MessagesModule,
-    ChartModule
+    ChartModule,
+    TabMenuModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

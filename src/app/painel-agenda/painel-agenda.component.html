@@ -1,8 +1,11 @@
 <p-messages class="message" [(value)]="messages"></p-messages>
-<div class="p-grid">
-    <p-panel header="Agenda" class="p-col-6">
+<div class="p-grid ">
+    <div class="p-col-12 p-text-uppercase title p-text-center"><h1>Agenda</h1></div>
+</div>
+<div class="p-grid ">
+    <p-panel header="Incluir Contato" class="p-col-12 p-md-6">
         <div class="p-grid p-mb-1">
-            <div class="p-col-2">Nome</div>
+            <div class="p-col-2 ">Nome</div>
             <div class="p-col-10">
                 <input pInputText type="text" [(ngModel)]="ag.nome">
             </div>
@@ -23,15 +26,15 @@
     </p-panel>
 
 
-    <p-panel header="Totais" class="p-col-6">
+    <p-panel header="Totais" class="p-col-12 p-md-6">
         <div class="p-grid">
-            <div class="p-col-6 p-text-center p-d-flex p-flex-column p-ai-center p-jc-center">
+            <div class="p-col-12 p-md-6 p-text-center p-d-flex p-flex-column p-ai-center p-jc-center">
                 Contatos:
                 <br> <span class="destaque"> {{agenda.length}}</span>
             </div>
 
-            <div class="p-col-6">
-                <p-chart type="pie" [data]="data" width="25vw" height="30vh"></p-chart>
+            <div class="p-col-12 p-md-6 p-md-6 p-text-center">
+                <p-chart type="pie" [data]="data" width="100%" height="30vh"></p-chart>
             </div>
 
         </div>
@@ -39,8 +42,8 @@
 
 </div>
 <div class="p-grid">
-    <p-table #dt [value]="agenda" [paginator]="true" [rows]="4" class="p-mt-2" [filterDelay]="0"
-        [globalFilterFields]="['nome','telefone','email']">
+    <p-table #dt [value]="agenda" [paginator]="true" [rows]="3" class="p-mt-2" [filterDelay]="0"
+        [globalFilterFields]="['nome','telefone','email']" [responsive]="true">
         <ng-template pTemplate="caption">
             <div class="table-header p-text-right">
 
