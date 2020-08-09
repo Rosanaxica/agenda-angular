@@ -1,8 +1,19 @@
 .deletar-atualizar {
-    width: 120px;
-    text-align: center;
-  }
-  .espaco {
-    margin: 0 10px 0 0;
-  }
+  width: 120px;
+  text-align: center;
+}
 
+.espaco {
+  margin: 0 10px 0 0;
+}
+
+.message {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.destaque {
+  font-size: 3em;
+}
